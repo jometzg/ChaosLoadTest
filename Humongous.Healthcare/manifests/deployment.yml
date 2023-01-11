@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: "humongous-healthcare-api"
-        image: "metron2.azurecr.io/humongous-healthcare-api:0.0.0"
+        image: "<replace with your login server>/humongous-healthcare-api:0.0.0"
         env:
         - name: CosmosDb__Account
           valueFrom:
