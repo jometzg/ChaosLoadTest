@@ -8,7 +8,7 @@ It is therefore natural to combine the use of both of these tools to test how an
 
 This repository is a workshop that combines the use of Chaos Studio with Azure Load Testing against an AKS-hosted API to Cosmos DB. The repository contains the code for the API and details how to deploy this to Azure and to then run combined chaos experiments alongside load tests to see the impact of an issue under load.
 
-# Here is a taster if an experiment
+# Here is a taster of an experiment
 
 The chaos experiment below, stops one of three pods for the application API that will be load tested.
 
@@ -16,7 +16,7 @@ The chaos experiment below, stops one of three pods for the application API that
 
 This results in one pod in the cluster failing
 
-![alt text](Humongous.Healthcare/images/chaos-aks-during-experiment-1 "AKS pod failure")
+![alt text](Humongous.Healthcare/images/chaos-aks-during-experiment-1.png "AKS pod failure")
 
 When load testing, it can be seen how when the experiment kicks in, the request rate fails of the API and also the response time increases. There are a few errors too!
 
