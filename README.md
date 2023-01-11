@@ -63,18 +63,30 @@ GET all messages
 ```
 GET http://<your-service-ip-address>/HealthCheck
 ```
+You can test this API using any tool you feel comfortable with, such as Postman or my current favourite the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) in Visual Studio code. 
 
-## Install Chaos Mesh on your AKS Cluster
+### Install Chaos Mesh on your AKS Cluster
 
 Once you are satisfied that the APIs work corretly in AKS, we are onto the Chaos installation parts. 
 
 First [install Chaos Mesh onto the AKS Cluster ](https://learn.microsoft.com/en-us/azure/chaos-studio/chaos-studio-tutorial-aks-portal#set-up-chaos-mesh-on-your-aks-cluster)
 
-## Enable Chaos Studio in AKS
+### Enable Chaos Studio in AKS
 
 This is standard configuration and is [enabling AKS as one of the Chaos targets](https://learn.microsoft.com/en-us/azure/chaos-studio/chaos-studio-tutorial-aks-portal#enable-chaos-studio-on-your-aks-cluster)
 
-## Enable Chaos for Cosmos too
+### Enable Chaos for Cosmos too
 
-This is a question of choosing the Cosmos instance using the same mechanism as for AKS.
+This is a question of choosing the Cosmos instance using the same steps as for AKS in the preceding section.
 
+### Provision an Azure Load Testing service
+
+Azure Load Testing is a normal Azure service. Provision it by giving it a name and preferably choosing the same region as the test application, there are limited regions for Azure Load Testing as it is in preview, so choosing one nearer will be better for testing if the same region is not available.
+
+The steps are explained [here](https://learn.microsoft.com/en-us/azure/load-testing/quickstart-create-and-run-load-test#create-an-azure-load-testing-resource)
+
+## Summary
+
+You should now have a test application (web API) in AKS that uses a Cosmos database. You should also now have Chaos Studio configured and ready to run experiments, plus a means of load testing to see what effect a Chaos experiment has on the application.
+
+So, let's move to do the [first experiment](experiment-one.md).
