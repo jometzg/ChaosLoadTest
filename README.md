@@ -57,7 +57,7 @@ Content-Type: application/json
         "Ennui"
     ]
 }
-``
+```
 
 GET all messages
 ```
