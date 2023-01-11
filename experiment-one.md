@@ -25,16 +25,32 @@ What the above script does is to target pods in the *health-check* namespace and
 
 ## Set up the Load Test 
 
+This only really needs to be be done once, but is a multi-step wizard.
+
+![alt text](Humongous.Healthcare/images/chaos-load-edit-basics.png "Edit Basics")
+
+![alt text](Humongous.Healthcare/images/chaos-load-edit-testplan.png "Edit Test Plan")
+
+![alt text](Humongous.Healthcare/images/chaos-load-edit-parameters.png "Edit Parameters")
+
+![alt text](Humongous.Healthcare/images/chaos-load-edit-monitoring.png "Edit monitoring")
+
+
 ## Perform test runs
+
+![alt text](Humongous.Healthcare/images/chaos-load-run-list.png "Load test runs")
 
 ### Run one - before the chaos experiment starts
 
+![alt text](Humongous.Healthcare/images/chaos-load-test-before-experiment-1-running.png "Run without experiment")
 
 ### Run two - during a load test
 
+![alt text](Humongous.Healthcare/images/chaos-load-test-run-experiment-1.png "Experiment in the middle of run")
 
 ### Run three - for the full duration of a load test
 
+![alt text](Humongous.Healthcare/images/chaos-load-test-before-experiment-1-running.png "Experiment for all run duration")
 
 ## Observations and Conclusions
 
