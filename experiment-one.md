@@ -8,6 +8,16 @@ In this experiment we going to cause some of the pods to fail on the AKS cluster
 
 ## Set up the Chaos Experiment
 
+This process essentially follows [this guide](https://learn.microsoft.com/en-us/azure/chaos-studio/chaos-studio-tutorial-aks-portal#create-an-experiment)
+
+This creates a simple experiment with one step with a single branch and action. 
+
+The action is the important part
+
+```
+{"action":"pod-failure","mode":"one","duration":"600s","selector":{"namespaces":["health-check"]}}
+```
+
 ## Set up the Load Test 
 
 ## Perform test runs
