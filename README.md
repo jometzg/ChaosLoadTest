@@ -45,7 +45,7 @@ As the guide suggests, test that your API works by performing a POST HTTP reuqes
 
 POST a JSON message
 ```
-POST http://<your-service-ip-address/HealthCheck
+POST http://<your-service-ip-address>/HealthCheck
 Content-Type: application/json
 
 {
@@ -63,3 +63,9 @@ GET all messages
 ```
 GET http://<your-service-ip-address>/HealthCheck
 ```
+
+## Install Chaos Mesh on your AKS Cluster
+
+Once you are satisfied that the APIs work corretly in AKS, we are onto the Chaos installation parts. 
+
+First [install Chaos Mesh onto the AKS Cluster ](https://learn.microsoft.com/en-us/azure/chaos-studio/chaos-studio-tutorial-aks-portal#set-up-chaos-mesh-on-your-aks-cluster)
