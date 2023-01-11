@@ -24,20 +24,42 @@ When load testing, when the chaos experiment kicks in, the request rate of the A
 
 ## Overall Workshop Structure
 
-1. Create AKS cluster
-2. Create Cosmos database
-3. Using the sample app in this repository, build, and deloy to the AKS cluster
-4. Enable Chaos Studio for AKS and Cosmos
-5. Build a Chaos Experiment
-6. Provision a load test service
-7. Configure a load test using the JMeter (JMX) test provided
-8. Run a chaos experiment
-9. Run a load test
-10. Analysis results
-11. Later run other Chaos experiments
+1. Deploy the sample app into an AKS cluster.
+2. Install Chaos mesh into the AKS cluster
+3. Enable Chaos Studio for AKS and Cosmos
+4. Build a Chaos Experiment
+5. Provision a load test service
+6. Configure a load test using the JMeter (JMX) test provided
+7. Run a chaos experiment
+8. Run a load test
+9. Analysis results
+10. Later run other Chaos experiments
 
 ## Getting Started
 
 The bulk of the effort for this workshop is setting up the system under test. This has been chosen as an AKS-hosted API because Kubernetes has a chaos mesh that then can be controlled from chaos experiments in a granular way. Likewise Cosmos database has some chaos capability.
 
 Rather than build an application from scratch, the one in this repository has been forked from [Humongous Healthcare sample app](https://github.com/microsoft/winwithappplatpoc/blob/main/Hands-On%20Lab.md#overview) Specifically, this workshop only needs the API part of the application and the instructions to install it are [here](https://github.com/microsoft/winwithappplatpoc/blob/main/Hands-On%20Lab.md#exercise-2--review-and-publish-the-humongous-healthcare-web-api-service). Tasks 1 - 4 are only needed.
+
+As the guide suggests, test that your API works by performing a POST HTTP reuqest with a JSON body and then some GET HTTP requests to establish the API works and is storing the payloads in Cosmos database.
+
+POST a JSON message
+```
+POST http://<your-service-ip-address/HealthCheck
+Content-Type: application/json
+
+{
+    "patientid": 5,
+    "date": "2021-09-08T00:41:49.9602636+00:00",
+    "healthstatus": "I feel healthy",
+    "symptoms": [
+        "Hair regrowth",
+        "Ennui"
+    ]
+}
+``
+
+GET all messages
+```
+GET http://<your-service-ip-address>/HealthCheck
+```
