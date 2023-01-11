@@ -21,7 +21,7 @@ The action is the important part
 {"action":"pod-failure","mode":"one","duration":"600s","selector":{"namespaces":["health-check"]}}
 ```
 
-What the above script does is to target pods in the *health-check* namespace and to fail *one* pod. There are many other ways of defining this fault. See the chaos mesh [documentation](https://chaos-mesh.org/docs/simulate-pod-chaos-on-kubernetes/#create-experiments-using-yaml-configuration-files). 
+What the above script does is to target pods in the *health-check* namespace and the *mode* is to fail *one* pod. There are many other ways of defining this fault. See the chaos mesh [documentation](https://chaos-mesh.org/docs/simulate-pod-chaos-on-kubernetes/#create-experiments-using-yaml-configuration-files). 
 
 ## Set up the Load Test 
 
