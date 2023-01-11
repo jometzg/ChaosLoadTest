@@ -18,7 +18,7 @@ This results in one pod in the cluster failing
 
 ![alt text](Humongous.Healthcare/images/chaos-aks-during-experiment-1.png "AKS pod failure")
 
-When load testing, it can be seen how when the experiment kicks in, the request rate fails of the API and also the response time increases. There are a few errors too!
+When load testing, when the chaos experiment kicks in, the request rate of the API falls and also the response time increases. There are a few errors too!
 
 ![alt text](Humongous.Healthcare/images/chaos-load-test-run-experiment-1.png "Load Test Results")
 
@@ -35,3 +35,9 @@ When load testing, it can be seen how when the experiment kicks in, the request 
 9. Run a load test
 10. Analysis results
 11. Later run other Chaos experiments
+
+## Getting Started
+
+The bulk of the effort for this workshop is setting up the system under test. This has been chosen as an AKS-hosted API because Kubernetes has a chaos mesh that then can be controlled from chaos experiments in a granular way. Likewise Cosmos database has some chaos capability.
+
+Rather than build an application from scratch, the one in this repository has been forked from [Humongous Healthcare sample app](https://github.com/microsoft/winwithappplatpoc/blob/main/Hands-On%20Lab.md#overview) Specifically, this workshop only needs the API part of the application and the instructions to install it are [here](https://github.com/microsoft/winwithappplatpoc/blob/main/Hands-On%20Lab.md#exercise-2--review-and-publish-the-humongous-healthcare-web-api-service). Tasks 1 - 4 are only needed.
