@@ -38,6 +38,10 @@ This only really needs to be be done once, but is a multi-step wizard.
 
 ## Perform test runs
 
+The chaos experiment as planned, caused one pod to not be available, this can be seen in the AKS workload section in the portal.
+
+![alt text](Humongous.Healthcare/images/chaos-load-run-list.png "Load test runs")
+
 ![alt text](Humongous.Healthcare/images/chaos-load-run-list.png "Load test runs")
 
 ### Run one - before the chaos experiment starts
