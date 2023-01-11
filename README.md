@@ -69,3 +69,12 @@ GET http://<your-service-ip-address>/HealthCheck
 Once you are satisfied that the APIs work corretly in AKS, we are onto the Chaos installation parts. 
 
 First [install Chaos Mesh onto the AKS Cluster ](https://learn.microsoft.com/en-us/azure/chaos-studio/chaos-studio-tutorial-aks-portal#set-up-chaos-mesh-on-your-aks-cluster)
+
+## Enable Chaos Studio in AKS
+
+This is standard configuration and is [enabling AKS as one of the Chaos targets](https://learn.microsoft.com/en-us/azure/chaos-studio/chaos-studio-tutorial-aks-portal#enable-chaos-studio-on-your-aks-cluster)
+
+## Enable Chaos for Cosmos too
+
+This is a question of choosing the Cosmos instance using the same mechanism as for AKS.
+
