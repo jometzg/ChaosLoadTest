@@ -11,12 +11,17 @@ In this experiment we going to cause some of the pods to fail on the AKS cluster
 This process essentially follows [this guide](https://learn.microsoft.com/en-us/azure/chaos-studio/chaos-studio-tutorial-aks-portal#create-an-experiment)
 
 This creates a simple experiment with one step with a single branch and action. 
+![alt text](Humongous.Healthcare/images/chaos-edit-experiment-1.png "Edit Experiment")
+
+and the fault details to run an AKS Chaos Messh Pod Chaos fault for 10 minutes:
+![alt text](Humongous.Healthcare/images/chaos-edit-action-1.png "Edit action")
 
 The action is the important part
-
 ```
 {"action":"pod-failure","mode":"one","duration":"600s","selector":{"namespaces":["health-check"]}}
 ```
+
+What the above script does is to target pods in the *health-check* namespace and to fail *one* pod. There are many other ways of defining this fault. See the chaos mesh [documentation](https://chaos-mesh.org/docs/simulate-pod-chaos-on-kubernetes/#create-experiments-using-yaml-configuration-files). 
 
 ## Set up the Load Test 
 
