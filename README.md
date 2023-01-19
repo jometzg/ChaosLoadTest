@@ -1,4 +1,4 @@
-# Chaos Studio Experiments with Azure Load Test
+# Chaos Studio Experiments with Azure Load Testing
 
 [Azure Chaos Studio]( https://learn.microsoft.com/en-us/azure/chaos-studio/chaos-studio-overview) is a new Azure tool for inducing faults in a target to allow you to really test how well an application or service copes with issues, specific outages, high CPU, low memory etc. This has often been difficult to test in a consistent way, so often development teams do not do this form of testing. This can lead to services being deployed that do not survive outages. Chaos Studio allows you to run "experiments" against a service (it must be emphasised that this should only be a test service) and see how it reacts to these experiments.
 
