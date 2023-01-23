@@ -16,6 +16,8 @@ It should be noted that for this experiment, we are not attempting to setup Cosm
 
 The chaos experiment needs to use the *Cosmos DB Failover Action* and this needs to be configured to point to the *read-only* region - that is the target region that to which the experiment will failover. If your Cosmos is in West Europe and the read replica in North Europe, then the experiment needs to be set to North Europe.
 
+![alt text](Humongous.Healthcare/images/chaos-cosmos-failover.png "Chaos Cosmos Experiment")
+
 ## Set up the Load Test 
 
 No need to setup the load test, but it is useful to use the feature in load test that allows you to comment a run, so for a specific load test the purpose of the run can be recorded for later.
@@ -24,16 +26,26 @@ The load test is exaclty the same one for experiment one.
 
 ## Perform test runs
 
+![alt text](Humongous.Healthcare/images/chaos-cosmos-failover-overview.png "Chaos Cosmos Changes")
+
+As can be seen in the above diagram, the write region gets changed during failover to one of the other read-only regions. In this case from *West Europe* to *North Europe*
+
 ### Run one - before the chaos experiment starts
 
+![alt text](Humongous.Healthcare/images/chaos-cosmos-failover-pretest-results.png "Test run before experiment")
 
 ### Run two - during a load test
 
+![alt text](Humongous.Healthcare/images/chaos-cosmos-failover.png "Chaos Cosmos Experiment")
 
 ### Run three - for the full duration of a load test
 
+![alt text](Humongous.Healthcare/images/chaos-cosmos-failover-posttest-results.png "Chaos Cosmos Experiment")
 
 ## Observations and Conclusions
 
+![alt text](Humongous.Healthcare/images/chaos-cosmos-failover-throughput-comparison.png "Comparison")
+
+In the above diagram, you can see that whilst the failed over Cosmos keeps working, the overall throughput is a little lower as it is in a different region to its AKS cluster when failed over.
 
 [Experiment three](experiment-three.md)
