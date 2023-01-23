@@ -36,7 +36,7 @@ As can be seen in the above diagram, the write region gets changed during failov
 
 ### Run two - during a load test
 
-![alt text](Humongous.Healthcare/images/chaos-cosmos-failover.png "Chaos Cosmos Experiment")
+![alt text](Humongous.Healthcare/images/chaos-cosmos-failover-test-results.png "Chaos Cosmos Run During Load Test")
 
 ### Run three - for the full duration of a load test
 
