@@ -8,7 +8,12 @@ In this experiment we going to cause an issue with the node pool that the AKS cl
 
 ## Set up the Chaos Experiment
 
-This chaos experiment uses VMSS
+This chaos experiment uses the *VMSS Shutdown* fault. This allows you to designate the VMSS and how many of the instances in the pool get shutdown. 
+
+![alt text](Humongous.Healthcare/images/chaos-node-pool-experiment.png "Node pool experiment")
+
+This experiment only works well if there is more than one node in the node pool - otherwise the application (when on a single AKS cluster with a single node pool) will not work at all. A much more interesting experiment is a partial failure.
+
 
 ## Set up the Load Test 
 
