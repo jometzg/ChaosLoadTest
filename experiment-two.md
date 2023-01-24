@@ -30,22 +30,34 @@ The load test is exaclty the same one for experiment one.
 
 As can be seen in the above diagram, the write region gets changed during failover to one of the other read-only regions. In this case from *West Europe* to *North Europe*
 
+
 ### Run one - before the chaos experiment starts
 
 ![alt text](Humongous.Healthcare/images/chaos-cosmos-failover-pretest-results.png "Test run before experiment")
+
+A baseline run. Both the compute and database in the same region.
+
 
 ### Run two - during a load test
 
 ![alt text](Humongous.Healthcare/images/chaos-cosmos-failover-test-results.png "Chaos Cosmos Run During Load Test")
 
+I have highlighted the point in time of the chaos experiment run. You can see a change in throughput and latency, but also no errors!
+
+
 ### Run three - for the full duration of a load test
 
 ![alt text](Humongous.Healthcare/images/chaos-cosmos-failover-posttest-results.png "Chaos Cosmos Experiment")
 
+Not much to see here. The applicarion works.
+
 ## Observations and Conclusions
+
+What's most impressive from running the chaos experiment in the middle of a load test is how the application is able to continue making reqeusts to Cosmos database without an error.
 
 ![alt text](Humongous.Healthcare/images/chaos-cosmos-failover-throughput-comparison.png "Comparison")
 
-In the above diagram, you can see that whilst the failed over Cosmos keeps working, the overall throughput is a little lower as it is in a different region to its AKS cluster when failed over.
+In the above diagram, you can see that whilst the failed over Cosmos keeps working, the overall throughput is a little lower as it is in a different region to its AKS cluster when failed over. Which makes sense, but there is not really that much in it. Having said that, it is not good practice to have the compute and data tiers of an application in different regions, as besides latency, the application will also incur egress charges for the data leaving the API to the other region.
+
 
 [Experiment three](experiment-three.md)
