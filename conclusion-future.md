@@ -4,7 +4,7 @@ Azure Chaos Experiments and Load Testing are two services that together provide 
 
 This opens up a new capability for application/product or SRE teams to actually test under repeatable conditions how an application reacts to failure. This should allow the architects, designers and coders to improve their applications.
 
-As a final reminder, it is not advised to do chaos testing against a production workload.
+**As a final reminder, it is not advised to do chaos testing against a production workload.**
 
 ## Future Experiments
 
