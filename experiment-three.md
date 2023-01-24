@@ -14,6 +14,22 @@ This chaos experiment uses the *VMSS Shutdown* fault. This allows you to designa
 
 This experiment only works well if there is more than one node in the node pool - otherwise the application (when on a single AKS cluster with a single node pool) will not work at all. A much more interesting experiment is a partial failure.
 
+Permissions for the chaos experiment to amend the VMSS that underpins the node pool need to be setup. On experiment creation, the chaos experiment creates a user assigned managed identity which is then used by the chaos experiments to control the VMSS. This *role assignment* needs to be created, otherwise the chaos experiment will not have permissions to run the experiment.
+
+![alt text](Humongous.Healthcare/images/chaos-vmss-managed-identity.png "VMSS managed identity")
+
+In the above, the chaos experiment creates a user-assigned managed identity and associated this with the VMSS that is the AKS node pool. This identity is then used to give permissions to the individual chaos experiments.
+
+![alt text](Humongous.Healthcare/images/chaos-vmss-managed-identity-permissions.png "VMSS Managed identity permissions")
+
+In the above, the chaos experiment *node-pool-issues* is given *contributor* access to the user defined managed identity associated with the VMSS. This allows this specific chaos experiment to control the VMSS. If further chaos experiments need to act against the VMSS control plane, these need to be added to the managed identity as extra role assignments.
+
+If when running an experiment on the VMSS you get an error of the form:
+```
+The resources='' referenced by the experiment could not be found due to insufficient permissions.
+```
+Then this is likely to be a permissions issue. See [Give experiment permission to your Virtual Machine](https://learn.microsoft.com/en-us/azure/chaos-studio/chaos-studio-quickstart-azure-portal#give-experiment-permission-to-your-virtual-machine)
+
 
 ## Set up the Load Test 
 
@@ -25,19 +41,32 @@ You can check that the experiment is having an effect on the cluster by looking 
 
 ![alt text](Humongous.Healthcare/images/chaos-node-pool-failure.png "Node pool not ready")
 
+How this impacts the pods really depends on how they have been scheduled. If they are scheduled across the node pool instances, such as below:
+
+![alt text](Humongous.Healthcare/images/chaos-node-pool-pods-two-node-pool.png "Pods across node pool")
+
+Then this means that when the experiment runs, then either 2 instances or 1 instance will need to be rescheduled to the remaining running node.
+
 
 ### Run one - before the chaos experiment starts
+
+This is really optional as the baseline can be seen from previous chaos experiments.
 
 
 ### Run two - during a load test
 
 ![alt text](Humongous.Healthcare/images/chaos-node-pool-fault-during-test.png "Node pool issue during test")
 
+In the above use case, there is not much to see. A few errors have crept in and the throughput does not look even, but not much to see.
 
 
 ### Run three - for the full duration of a load test
 
 ![alt text](Humongous.Healthcare/images/chaos-node-pool-fault-before-test.png "Node pool issue before test")
+
+In the above, there is even less to see as it appears that the scheduler has already made sure all of the pods are on the one remaining node pool instance.
+
+![alt text](Humongous.Healthcare/images/chaos-node-pool-pods-one-node.png "pods on a single node pool instance")
 
 
 ## Observations and Conclusions
