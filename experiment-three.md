@@ -40,5 +40,13 @@ You can check that the experiment is having an effect on the cluster by looking 
 
 ## Observations and Conclusions
 
+This first conclusion that can be drawn is that in a two-node cluster, killing one node will not change the availability of the application.
+
+But there is much more than this. What happens really depends on the scheduler, the deployment YAML's limits and what other workloads are competing for space on the cluster. If no limits are set, apart from not being good practice, it means that Kubernetes could schedule all replicas of the pod on the same node pool instance. If that node pool instance is killed during the chaos test, then they will be rescheduled onto the other node pool instance. 
+
+Under more realistic conditions, the pods will have been scheduled across the node pool instances. Failure of one node pool instance, then means that either the workload will run with fewer instances or - if there is space that instance on the killed node pool instance will be rescheduled. Depending on the influence of the data tier, this may or may not have a noticable impact on the throughput of the application.
+
+
+
 
 
