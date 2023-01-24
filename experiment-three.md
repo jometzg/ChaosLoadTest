@@ -43,7 +43,7 @@ You can check that the experiment is having an effect on the cluster by looking 
 
 How this impacts the pods really depends on how they have been scheduled. If they are scheduled across the node pool instances, such as below:
 
-![alt text](Humongous.Healthcare/images/chaos-node-pool-pods-two-node-pool.png "Pods across node pool")
+![alt text](Humongous.Healthcare/images/chaos-node-pool-pods-two-node.png "Pods across node pool")
 
 Then this means that when the experiment runs, then either 2 instances or 1 instance will need to be rescheduled to the remaining running node.
 
