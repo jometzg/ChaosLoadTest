@@ -10,7 +10,7 @@ This repository is a workshop that combines the use of Chaos Studio with Azure L
 
 ## Quick Links
 1. [Experiment one AKS pod failure](experiment-one.md).
-2. [Experiment two Cosmos database issues](experiment-two.md).
+2. [Experiment two Cosmos database failover](experiment-two.md).
 2. [Experiment three AKS node pool issues](experiment-three.md).
 
 
