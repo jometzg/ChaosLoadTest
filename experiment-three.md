@@ -21,10 +21,18 @@ No need to setup the load test, but it is useful to use the feature in load test
 
 ## Perform test runs
 
+You can check that the experiment is having an effect on the cluster by looking at the node pools part of the the AKS instance in the portal. It should show one of the node pools not being available:
+
+![alt text](Humongous.Healthcare/images/chaos-node-pool-failure.png "Node pool not ready")
+
+
 ### Run one - before the chaos experiment starts
 
 
 ### Run two - during a load test
+
+![alt text](Humongous.Healthcare/images/chaos-node-pool-fault-during-test.png "Node pool issue during test")
+
 
 
 ### Run three - for the full duration of a load test
