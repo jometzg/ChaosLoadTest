@@ -37,6 +37,8 @@ You can check that the experiment is having an effect on the cluster by looking 
 
 ### Run three - for the full duration of a load test
 
+![alt text](Humongous.Healthcare/images/chaos-node-pool-fault-before-test.png "Node pool issue before test")
+
 
 ## Observations and Conclusions
 
@@ -47,6 +49,6 @@ But there is much more than this. What happens really depends on the scheduler, 
 Under more realistic conditions, the pods will have been scheduled across the node pool instances. Failure of one node pool instance, then means that either the workload will run with fewer instances or - if there is space that instance on the killed node pool instance will be rescheduled. Depending on the influence of the data tier, this may or may not have a noticable impact on the throughput of the application.
 
 
-
+[Conclusions and future experiments](conclusion-future.md).
 
 
