@@ -91,7 +91,7 @@ Azure Load Testing is a normal Azure service. Provision it by giving it a name a
 
 The steps are explained [here](https://learn.microsoft.com/en-us/azure/load-testing/quickstart-create-and-run-load-test#create-an-azure-load-testing-resource)
 
-The [load test JMX](Humongous.Healthcare/loadtest/aks-chaos-1.jmx) file is included in this repo. This JMX has two parameter:
+The [load test JMX](Humongous.Healthcare/loadtest/aks-chaos-1.jmx) file is included in this repo. This JMX has two parameters:
 1. webapp - this is the address of the target. In the case of this demo app, this is the IP address of the AKS service that the cluster exposes
 2. endpoint - this is the URL of the API - this should be "HealthCheck"
 
