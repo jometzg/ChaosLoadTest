@@ -91,6 +91,15 @@ Azure Load Testing is a normal Azure service. Provision it by giving it a name a
 
 The steps are explained [here](https://learn.microsoft.com/en-us/azure/load-testing/quickstart-create-and-run-load-test#create-an-azure-load-testing-resource)
 
+The [load test JMX](Humongous.Healthcare/loadtest/aks-chaos-1.jmx) file is included in this repo. This JMX has two parameter:
+1. webapp - this is the address of the target. In the case of this demo app, this is the IP address of the AKS service that the cluster exposes
+2. endpoint - this is the URL of the API - this should be "HealthCheck"
+
+Here are the parameters in the load test configuration user interface in the Azure portal.
+
+![alt text](Humongous.Healthcare/images/load-test-parameters-2.png "Load test parameters")
+
+
 ## Summary
 
 You should now have a test application (web API) in AKS that uses a Cosmos database. You should also now have Chaos Studio configured and ready to run experiments, plus a means of load testing to see what effect a Chaos experiment has on the application.
